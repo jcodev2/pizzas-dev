@@ -1,0 +1,186 @@
+/* **************** Fluid Text **************** */
+/* todo: https://utopia.fyi/type/calculator/ */
+:root {
+  /* ? Customize ? */
+  --step--2: clamp(0.74rem, 0.75rem + -0.05vw, 0.7rem);
+  --step--1: clamp(0.89rem, 0.87rem + 0.07vw, 0.94rem);
+  --step-0: clamp(1.06rem, 1.01rem + 0.25vw, 1.25rem);
+  --step-1: clamp(1.28rem, 1.17rem + 0.53vw, 1.67rem);
+  --step-2: clamp(1.53rem, 1.34rem + 0.94vw, 2.22rem);
+  --step-3: clamp(1.84rem, 1.53rem + 1.52vw, 2.96rem);
+  --step-4: clamp(2.2rem, 1.73rem + 2.36vw, 3.95rem);
+  --step-5: clamp(2.64rem, 1.93rem + 3.55vw, 5.26rem);
+}
+
+/* **************** Custom Properties **************** */
+:root {
+  --first-color: #ef9a53;
+  --second-color: #fff7e9;
+  --third-color: #323232;
+  --fourth-color: #82aae3;
+  --dark-color: #393e46;
+  --white-color: #ffffff;
+}
+:root {
+  --max-width: 1200px;
+}
+
+/* **************** Reset **************** */
+/* ? Html */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* ? Body */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--white-color);
+}
+
+/* ? Headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  color: var(--third-color);
+}
+
+/* ? Media */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ? Lists */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ? Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ? Paragraphs */
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* **************** Components **************** */
+/* ? Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1rem 0 1rem;
+}
+
+/* ? Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.header .menu {
+  width: 24px;
+  height: 24px;
+}
+.header .logo {
+  font-size: var(--step-0);
+  font-style: italic;
+  font-weight: 800;
+}
+.header .user {
+  width: 24px;
+  height: 24px;
+}
+
+/* **************** Utilities **************** */
+
+/* **************** Site Styles **************** */
+/* ? Main Home */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--third-color);
+}
+main .svg-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+main .introduction {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+main .introduction h2 {
+  font-size: var(--step-3);
+  font-weight: 800;
+  text-align: center;
+}
+main .introduction p {
+  font-size: var(--step-2);
+  font-weight: 400;
+  text-align: center;
+}
+main .login {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--first-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 4rem;
+}
+main .login a {
+  font-size: var(--step-2);
+  font-weight: 800;
+  text-align: center;
+  color: var(--white-color);
+}
+main .signup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: var(--step-1);
+  font-weight: 800;
+}
+main .signup p {
+  color: var(--third-color);
+}
+main .signup a {
+  color: var(--fourth-color);
+}
