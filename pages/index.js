@@ -14,10 +14,7 @@ const layoutProps = {
 }
 
 export default function Home() {
-  const { user, loading, signInWithGithub, signOut } = useUser()
-
-  console.log('user', user)
-  console.log('loading', loading)
+  const { signInWithGithub } = useUser()
 
   return (
     <Layout {...layoutProps}>
@@ -32,16 +29,16 @@ export default function Home() {
         </p>
       </div>
       <div className='login'>
-        <Link href='/login'>Login with Github</Link>
+        <Link href='/' onClick={signInWithGithub}>
+          Login with Github
+        </Link>
       </div>
       <div className='signup'>
         <p>Don't have an account?</p>
-        <Link href='/signup'>Sign up with GitHub</Link>
+        <Link href='/' onClick={signInWithGithub}>
+          Sign up with GitHub
+        </Link>
       </div>
-
-      <Link onClick={signInWithGithub} href='/'>
-        Sign in with GitHub
-      </Link>
     </Layout>
   )
 }

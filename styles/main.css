@@ -120,6 +120,55 @@ p {
 .header .user {
   width: 24px;
   height: 24px;
+  border-radius: 50%;
+}
+.header .user img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* ? Pizza Card */
+.pizza-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 165px;
+  height: 100%;
+}
+.pizza-card .pizza-card-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  aspect-ratio: 1/1;
+}
+.pizza-card .pizza-card-content {
+  display: flex;
+  gap: 0.5rem;
+}
+.pizza-card .pizza-card-content-words {
+  width: 70%;
+}
+.pizza-card .pizza-card-content h3 {
+  font-size: var(--step-1);
+  font-weight: 700;
+  color: var(--third-color);
+}
+.pizza-card .pizza-card-content p {
+  font-size: var(--step-1);
+  font-weight: 400;
+  color: #aaa;
+}
+.pizza-card .pizza-card-content-button {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pizza-card .pizza-card-content-button svg {
+  width: 3rem;
+  height: 3rem;
 }
 
 /* **************** Utilities **************** */
@@ -131,6 +180,7 @@ main {
   flex-direction: column;
   gap: 1rem;
   color: var(--third-color);
+  margin-bottom: 1rem;
 }
 main .svg-img {
   display: flex;
@@ -182,5 +232,74 @@ main .signup p {
   color: var(--third-color);
 }
 main .signup a {
+  color: var(--fourth-color);
+}
+
+/* ? Search */
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  height: 32px;
+  background-color: #efefef;
+  color: var(--third-color);
+  border-radius: 0.5rem;
+}
+.search svg {
+  width: 16px;
+  height: 16px;
+}
+.search input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: var(--step-1);
+  font-weight: 400;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* ? Home */
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.home article h2 {
+  font-size: var(--step-3);
+  font-weight: 600;
+}
+
+/* ? Pizzas */
+.pizzas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.menu .menu-header,
+.selected-recipies .selected-recipe-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu .menu-header h2,
+.selected-recipies .selected-recipe-header h2 {
+  font-size: var(--step-3);
+  font-weight: 600;
+}
+.menu .menu-header a,
+.selected-recipies .selected-recipe-header a {
+  font-size: var(--step-1);
+  font-weight: 500;
   color: var(--fourth-color);
 }
