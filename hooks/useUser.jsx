@@ -1,4 +1,3 @@
-import Router from 'next/router'
 import { useEffect, useState } from 'react'
 import supabase from 'services/supabase'
 
@@ -9,27 +8,11 @@ const useUser = () => {
     const getUserData = async () => {
       await supabase.auth.getUser().then((user) => {
         if (user.data?.user) {
-          // console.log('user', user.data.user)
           setUser(user.data.user)
         }
       })
     }
     getUserData()
-  }, [])
-
-  const checkUser = async () => {
-    // check if user is logged in
-    const user = supabase.auth.getUser()
-    if (user) {
-      // redirect to dashboard
-      Router.push('/home')
-    } else {
-      // redirect to login
-      Router.push('/')
-    }
-  }
-  useEffect(() => {
-    checkUser()
   }, [])
 
   const signInWithGithub = async () => {
