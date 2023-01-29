@@ -8,7 +8,7 @@ const PizzaCard = ({ name, image, price }) => {
   return (
     <section className='pizza-card'>
       <article className='pizza-card-image'>
-        <Image src={image} alt={name} width={300} height={300} />
+        <Image src={image} alt={name} width={300} height={300} priority />
       </article>
       <article className='pizza-card-content'>
         <div className='pizza-card-content-words'>
