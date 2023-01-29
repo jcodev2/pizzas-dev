@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@algolia/autocomplete-core": "1.7.4",
     "@next/font": "13.1.1",
     "@supabase/supabase-js": "^2.2.3",
     "eslint": "8.30.0",
