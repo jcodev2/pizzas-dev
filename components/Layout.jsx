@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Container from './Container'
 import Header from './Header'
-import Navigation from './Navigation'
 
 const Layout = ({ title, description, children }) => {
   return (
@@ -13,8 +12,6 @@ const Layout = ({ title, description, children }) => {
       </Head>
 
       <Header />
-
-      <Navigation />
 
       <main>{children}</main>
     </Container>

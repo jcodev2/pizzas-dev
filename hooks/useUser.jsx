@@ -6,11 +6,15 @@ const useUser = () => {
 
   useEffect(() => {
     const getUserData = async () => {
-      await supabase.auth.getUser().then((user) => {
-        if (user.data?.user) {
-          setUser(user.data.user)
-        }
-      })
+      try {
+        await supabase.auth.getUser().then((user) => {
+          if (user.data?.user) {
+            setUser(user.data.user)
+          }
+        })
+      } catch (error) {
+        console.log(error)
+      }
     }
     getUserData()
   }, [])

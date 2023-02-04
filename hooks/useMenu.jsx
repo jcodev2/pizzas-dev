@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import getMenu from 'utilities/getMenu'
+import { getMenu, getSixPizzas } from 'utilities/getMenu'
 
 const useMenu = () => {
   const [menu, setMenu] = useState([])
+  const [pizzasOfTheDay, setPizzasOfTheDay] = useState([])
   const [error, setError] = useState(null)
 
   const fetchMenu = async () => {
@@ -16,11 +17,26 @@ const useMenu = () => {
     setMenu(menu)
   }
 
+  const fetchPizzasOfTheDay = async () => {
+    const [pizzasOfTheDay, error] = await getSixPizzas()
+
+    if (error) {
+      setError(error)
+      return
+    }
+
+    setPizzasOfTheDay(pizzasOfTheDay)
+  }
+
   useEffect(() => {
     fetchMenu()
   }, [])
 
-  return [menu, error]
+  useEffect(() => {
+    fetchPizzasOfTheDay()
+  }, [])
+
+  return [menu, pizzasOfTheDay, error]
 }
 
 export default useMenu

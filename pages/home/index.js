@@ -1,15 +1,17 @@
 import Layout from 'components/Layout'
+import Navigation from 'components/Navigation'
 import PizzaCard from 'components/PizzaCard'
 import Search from 'components/Search'
 import useMenu from 'hooks/useMenu'
 import Link from 'next/link'
 
 export default function Home() {
-  const [menu] = useMenu()
+  const [_, pizzasOfTheDay] = useMenu()
 
   return (
     <Layout>
       <Search />
+      <Navigation />
 
       <section className='home'>
         <article className='selected-recipies'>
@@ -25,7 +27,7 @@ export default function Home() {
             <Link href='/menu'>View all</Link>
           </div>
           <div className='pizzas'>
-            {menu.map(({ id, name, image, price }) => (
+            {pizzasOfTheDay.map(({ id, name, image, price }) => (
               <PizzaCard key={id} name={name} image={image} price={price} />
             ))}
           </div>
