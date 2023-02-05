@@ -28,7 +28,13 @@ export default function Home() {
           </div>
           <div className='pizzas'>
             {pizzasOfTheDay.map(({ id, name, image, price }) => (
-              <PizzaCard key={id} name={name} image={image} price={price} />
+              <PizzaCard
+                key={id}
+                name={name}
+                image={image}
+                price={price}
+                id={id}
+              />
             ))}
           </div>
         </article>
