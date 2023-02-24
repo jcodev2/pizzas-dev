@@ -7,8 +7,14 @@ const Layout = ({ title, description, children }) => {
     <Container>
       <Head>
         <title>{title}</title>
-        <meta name='description' content={description} />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta
+          name='description'
+          content={description}
+        />
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1'
+        />
       </Head>
 
       <Header />
