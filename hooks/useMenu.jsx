@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getMenu, getSixPizzas } from 'utilities/getMenu'
+import { readMenu, readSixPizzas } from 'utilities/crud/readMenu'
 
 const useMenu = () => {
   const [menu, setMenu] = useState([])
@@ -7,7 +7,7 @@ const useMenu = () => {
   const [error, setError] = useState(null)
 
   const fetchMenu = async () => {
-    const [menu, error] = await getMenu()
+    const [menu, error] = await readMenu()
 
     if (error) {
       setError(error)
@@ -18,7 +18,7 @@ const useMenu = () => {
   }
 
   const fetchPizzasOfTheDay = async () => {
-    const [pizzasOfTheDay, error] = await getSixPizzas()
+    const [pizzasOfTheDay, error] = await readSixPizzas()
 
     if (error) {
       setError(error)
@@ -27,7 +27,6 @@ const useMenu = () => {
 
     setPizzasOfTheDay(pizzasOfTheDay)
   }
-
   useEffect(() => {
     fetchMenu()
   }, [])
