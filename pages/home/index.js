@@ -6,7 +6,7 @@ import useMenu from 'hooks/useMenu'
 import Link from 'next/link'
 
 export default function Home() {
-  const [_, pizzasOfTheDay] = useMenu()
+  const [, pizzasOfTheDay] = useMenu()
 
   return (
     <Layout>
@@ -19,7 +19,11 @@ export default function Home() {
             <h2>Selected Recipe</h2>
             <Link href='/cart'>View all</Link>
           </div>
-          <div className='recipies'></div>
+          <div className='recipies'>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            </p>
+          </div>
         </article>
         <article className='menu'>
           <div className='menu-header'>
