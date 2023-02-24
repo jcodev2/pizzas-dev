@@ -21,6 +21,7 @@ const Header = () => {
             alt='user avatar'
             width={40}
             height={40}
+            priority
           />
         ) : (
           <UserSVG />
