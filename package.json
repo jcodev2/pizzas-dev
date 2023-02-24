@@ -1,21 +1,28 @@
 {
   "name": "pizzas-dev",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@algolia/autocomplete-core": "1.7.4",
     "@next/font": "13.1.1",
     "@supabase/supabase-js": "2.2.3",
-    "eslint": "8.30.0",
     "eslint-config-next": "13.1.1",
+    "lodash": "4.17.21",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "8.33.0",
+    "standard": "17.0.0",
+    "vitest": "0.28.5"
   }
 }
