@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Inter } from '@next/font/google'
+// import { Inter } from '@next/font/google'
 import Layout from 'components/Layout'
 import LoginSVG from 'components/svg/LoginSVG'
 import useUser from 'hooks/useUser'
 import Link from 'next/link'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 const layoutProps = {
   title: 'Login - Pizzas',
@@ -29,13 +29,19 @@ export default function Home() {
         </p>
       </div>
       <div className='login'>
-        <Link href='/' onClick={signInWithGithub}>
+        <Link
+          href='/'
+          onClick={signInWithGithub}
+        >
           Login with Github
         </Link>
       </div>
       <div className='signup'>
         <p>Don't have an account?</p>
-        <Link href='/' onClick={signInWithGithub}>
+        <Link
+          href='/'
+          onClick={signInWithGithub}
+        >
           Sign up with GitHub
         </Link>
       </div>
