@@ -7,7 +7,7 @@ describe('addZero', () => {
   })
 
   it('should throw an error if the argument is not a number', () => {
-    expect(() => addZero('test')).toThrow()
+    expect(() => addZero('test')).toThrow('The argument must be a number')
   })
 
   it('should return a string', () => {
