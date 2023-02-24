@@ -1,4 +1,5 @@
 import Container from 'components/Container'
+import Pizza from 'components/Pizza'
 import ArrowSVG from 'components/svg/ArrowSVG'
 import UserSVG from 'components/svg/UserSVG'
 import useUser from 'hooks/useUser'
@@ -6,15 +7,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import supabase from 'services/supabase'
 
-export default function Pizza({ pizza }) {
+export default function PizzaPage({ pizza }) {
   const { user } = useUser()
-
-  console.log(pizza)
 
   return (
     <Container>
       <header className='header'>
-        <Link href={'/menu'} className='menu arrow'>
+        <Link
+          href='/menu'
+          className='menu arrow'
+        >
           <ArrowSVG />
         </Link>
         <div className='logo in-case'>
@@ -27,6 +29,7 @@ export default function Pizza({ pizza }) {
               alt='user avatar'
               width={40}
               height={40}
+              priority
             />
           ) : (
             <UserSVG />
@@ -42,27 +45,21 @@ export default function Pizza({ pizza }) {
             ingredients,
             price,
             rating,
-            wright,
+            weight,
             kilocalories,
             image
           }) => (
-            <article key={id}>
-              <Image src={image} alt={name} width={300} height={300} />
-              {/* <div className='pizza-info'>
-                <h2>{name}</h2>
-                <p>{ingredients}</p>
-                <div className='pizza-info-bottom'>
-                  <div className='pizza-info-bottom-left'>
-                    <p>{price} $</p>
-                    <p>{rating} ⭐</p>
-                  </div>
-                  <div className='pizza-info-bottom-right'>
-                    <p>{wright} g</p>
-                    <p>{kilocalories} kcal</p>
-                  </div>
-                </div>
-              </div> */}
-            </article>
+            <Pizza
+              key={id}
+              name={name}
+              ingredients={ingredients}
+              price={price}
+              rating={rating}
+              weight={weight}
+              kilocalories={kilocalories}
+              image={image}
+              id={id}
+            />
           )
         )}
       </section>
