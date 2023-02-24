@@ -8,9 +8,18 @@ const PizzaCard = ({ id, name, image, price }) => {
 
   return (
     <section className='pizza-card'>
-      <Link href={`/menu/pizza/${id}`} passHref>
+      <Link
+        href={`/menu/pizza/${id}`}
+        passHref
+      >
         <article className='pizza-card-image'>
-          <Image src={image} alt={name} width={300} height={300} priority />
+          <Image
+            src={image}
+            alt={name}
+            width={300}
+            height={300}
+            priority
+          />
         </article>
         <article className='pizza-card-content'>
           <div className='pizza-card-content-words'>
