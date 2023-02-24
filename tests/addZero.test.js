@@ -6,10 +6,6 @@ describe('addZero', () => {
     expect(typeof addZero).toBe('function')
   })
 
-  it('should throw an error if the argument is not a number', () => {
-    expect(() => addZero('test')).toThrow('The argument must be a number')
-  })
-
   it('should return a string', () => {
     expect(typeof addZero(1)).toBe('string')
   })

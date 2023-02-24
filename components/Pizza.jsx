@@ -20,7 +20,7 @@ const Pizza = ({
 }) => {
   const starRating = getStarRating(rating)
   const capitalizedName = capitalizeFirstLetter(name)
-  const numRating = addZero(parseFloat(rating))
+  const numRating = addZero(rating)
   const { addToCart } = useContext(CartContext)
 
   return (
