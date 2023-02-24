@@ -5,7 +5,13 @@ const AutocompleteItem = ({ name, price, id, image }) => {
   return (
     <Link href={`/menu/pizza/${id}`}>
       <li>
-        <Image height={48} width={48} src={image} alt={name} />
+        <Image
+          height={48}
+          width={48}
+          src={image}
+          alt={name}
+          priority
+        />
 
         <div className='item-details'>
           <h3>{name}</h3>
