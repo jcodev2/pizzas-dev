@@ -19,13 +19,13 @@ const Navigation = () => {
           </MyLink>
         </li>
         <li className='navigation-list-item'>
-          <MyLink href='/market'>
-            <MarketCarSVG />
+          <MyLink href='/account'>
+            <UserSVG />
           </MyLink>
         </li>
         <li className='navigation-list-item'>
-          <MyLink href='/account'>
-            <UserSVG />
+          <MyLink href='/market'>
+            <MarketCarSVG />
           </MyLink>
         </li>
       </ul>
