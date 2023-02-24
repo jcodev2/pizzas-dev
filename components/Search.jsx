@@ -1,5 +1,6 @@
 import { createAutocomplete } from '@algolia/autocomplete-core'
 import useMenu from 'hooks/useMenu'
+import { debounce } from 'lodash'
 import { useMemo, useRef, useState } from 'react'
 import AutocompleteItem from './AutocompleteItem'
 import SearchSVG from './svg/SearchSVG'
@@ -12,7 +13,8 @@ const Search = ({ value, onChange }) => {
 
   const [autocompleteState, setAutocompleteState] = useState({
     collection: [],
-    isOpen: false
+    isOpen: false,
+    query: ''
   })
 
   const autocomplete = useMemo(
@@ -47,13 +49,21 @@ const Search = ({ value, onChange }) => {
     inputElement: inputRef.current
   })
 
+  const debouncedOnChange = debounce((e) => {
+    onChange(e.target.value)
+  }, 500)
+
   return (
-    <form className='search' {...formProps} ref={formRef}>
+    <form
+      className='search'
+      {...formProps}
+      ref={formRef}
+    >
       <SearchSVG onClick={focusInput} />
       <input
         type='text'
         value={value}
-        onChange={onChange}
+        onChange={debouncedOnChange}
         ref={inputRef}
         {...inputProps}
       />
@@ -67,19 +77,32 @@ const Search = ({ value, onChange }) => {
             const { items } = collection
 
             return (
-              <article key={`section-${index}`}>
-                {items.length > 0 && (
+              items.length > 0 && (
+                <article key={`section-${index}`}>
                   <ul {...autocomplete.getListProps()}>
                     {items.map((item) => (
-                      <AutocompleteItem key={item.id} {...item} />
+                      <AutocompleteItem
+                        key={item.id}
+                        {...item}
+                      />
                     ))}
                   </ul>
-                )}
-              </article>
+                </article>
+              )
             )
           })}
         </section>
       )}
+      {autocompleteState.isOpen === false &&
+        autocompleteState.query.length > 0 && (
+          <section
+            className='autocomplete-panel'
+            ref={panelRef}
+          >
+            <p className='no-results'>No results found</p>
+          </section>
+          // eslint-disable-next-line indent
+        )}
     </form>
   )
 }
