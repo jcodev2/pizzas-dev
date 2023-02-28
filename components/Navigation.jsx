@@ -1,4 +1,4 @@
-import MyLink from './MyLink'
+import MyLink from './myLink'
 import HomeSVG from './svg/HomeSVG'
 import LogoSVG from './svg/LogoSVG'
 import MarketCarSVG from './svg/MarketCarSVG'
