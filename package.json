@@ -21,6 +21,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@testing-library/react": "14.0.0",
     "eslint": "8.33.0",
     "standard": "17.0.0",
     "vitest": "0.28.5"
