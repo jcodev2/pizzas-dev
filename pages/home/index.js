@@ -6,11 +6,8 @@ import getDataFromLocalStorage from 'helpers/getDataFromLocalStorage'
 import useMenu from 'hooks/useMenu'
 import Link from 'next/link'
 
-export default function Home() {
+export default function Home({ cartLocalStorage }) {
   const [, pizzasOfTheDay] = useMenu()
-  const cartLocalStorage = getDataFromLocalStorage('cart')
-
-  console.log(cartLocalStorage)
 
   return (
     <Layout>
@@ -59,4 +56,14 @@ export default function Home() {
       </section>
     </Layout>
   )
+}
+
+export async function getServerSideProps() {
+  const cartLocalStorage = getDataFromLocalStorage('cart')
+
+  return {
+    props: {
+      cartLocalStorage
+    }
+  }
 }
