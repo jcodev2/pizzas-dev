@@ -25,7 +25,7 @@ const useUser = () => {
       }
     }
     getUserData()
-  }, [router])
+  }, [])
 
   const getURL = () => {
     let url =

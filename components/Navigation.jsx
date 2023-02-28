@@ -24,7 +24,7 @@ const Navigation = () => {
           </MyLink>
         </li>
         <li className='navigation-list-item'>
-          <MyLink href='/market'>
+          <MyLink href='/cart'>
             <MarketCarSVG />
           </MyLink>
         </li>

@@ -2,12 +2,14 @@ import Layout from 'components/Layout'
 import Navigation from 'components/Navigation'
 import PizzaCard from 'components/PizzaCard'
 import Search from 'components/Search'
-import getDataFromLocalStorage from 'helpers/getDataFromLocalStorage'
+import { CartContext } from 'context/cart'
 import useMenu from 'hooks/useMenu'
 import Link from 'next/link'
+import { useContext } from 'react'
 
-export default function Home({ cartLocalStorage }) {
+export default function Home() {
   const [, pizzasOfTheDay] = useMenu()
+  const { cart } = useContext(CartContext)
 
   return (
     <Layout>
@@ -21,8 +23,8 @@ export default function Home({ cartLocalStorage }) {
             <Link href='/cart'>View all</Link>
           </div>
           <div className='recipies'>
-            {cartLocalStorage.length > 0 ? (
-              cartLocalStorage.map(({ id, name, image, price }) => (
+            {cart.length > 0 ? (
+              cart.map(({ id, name, image, price }) => (
                 <PizzaCard
                   key={id}
                   name={name}
@@ -56,14 +58,4 @@ export default function Home({ cartLocalStorage }) {
       </section>
     </Layout>
   )
-}
-
-export async function getServerSideProps() {
-  const cartLocalStorage = getDataFromLocalStorage('cart')
-
-  return {
-    props: {
-      cartLocalStorage
-    }
-  }
 }

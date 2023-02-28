@@ -2,7 +2,6 @@ import Container from 'components/Container'
 import Pizza from 'components/Pizza'
 import ArrowSVG from 'components/svg/ArrowSVG'
 import UserSVG from 'components/svg/UserSVG'
-import createDefaultArray from 'helpers/createDefaultArray'
 import useUser from 'hooks/useUser'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -38,12 +37,7 @@ export default function PizzaPage({ pizza }) {
         </div>
       </header>
 
-      <section
-        className='pizza'
-        onLoad={() => {
-          createDefaultArray()
-        }}
-      >
+      <section className='pizza'>
         {pizza.map(
           ({
             id,
