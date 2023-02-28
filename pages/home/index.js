@@ -2,11 +2,15 @@ import Layout from 'components/Layout'
 import Navigation from 'components/Navigation'
 import PizzaCard from 'components/PizzaCard'
 import Search from 'components/Search'
+import getDataFromLocalStorage from 'helpers/getDataFromLocalStorage'
 import useMenu from 'hooks/useMenu'
 import Link from 'next/link'
 
 export default function Home() {
   const [, pizzasOfTheDay] = useMenu()
+  const cartLocalStorage = getDataFromLocalStorage('cart')
+
+  console.log(cartLocalStorage)
 
   return (
     <Layout>
@@ -20,9 +24,19 @@ export default function Home() {
             <Link href='/cart'>View all</Link>
           </div>
           <div className='recipies'>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            </p>
+            {cartLocalStorage.length > 0 ? (
+              cartLocalStorage.map(({ id, name, image, price }) => (
+                <PizzaCard
+                  key={id}
+                  name={name}
+                  image={image}
+                  price={price}
+                  id={id}
+                />
+              ))
+            ) : (
+              <p>There are no selected recipes</p>
+            )}
           </div>
         </article>
         <article className='menu'>
