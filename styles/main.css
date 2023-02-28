@@ -442,6 +442,19 @@ main .signup a {
   color: var(--fourth-color);
 }
 
+.recipies {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  overflow-y: scroll;
+}
+.recipies::-webkit-scrollbar {
+  display: none;
+}
+.recipies > .pizza-card {
+  flex: 0 0 20rem;
+}
+
 /* ? Pizza */
 .arrow {
   width: 2rem;
