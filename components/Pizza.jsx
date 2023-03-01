@@ -1,4 +1,5 @@
 import { CartContext } from 'context/cart'
+import Head from 'next/head'
 import Image from 'next/image'
 import { useContext } from 'react'
 import addZero from 'utilities/addZero'
@@ -25,6 +26,17 @@ const Pizza = ({
 
   return (
     <>
+      <Head>
+        <title>{capitalizedName} - Pizza</title>
+        <meta
+          name='description'
+          content={ingredients}
+        />
+        <meta
+          name='keywords'
+          content={ingredients}
+        />
+      </Head>
       <Image
         src={image}
         alt={name}
