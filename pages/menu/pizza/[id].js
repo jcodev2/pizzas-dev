@@ -10,8 +10,6 @@ import supabase from 'services/supabase'
 export default function PizzaPage({ pizza }) {
   const { user } = useUser()
 
-  console.log(pizza)
-
   return (
     <Container>
       <header className='header'>
