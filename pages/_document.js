@@ -17,6 +17,10 @@ export default function Document() {
           href='https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,800&display=swap'
           rel='stylesheet'
         />
+        <meta
+          rel='theme-color'
+          content='#ef9a53'
+        />
       </Head>
       <body>
         <Main />
