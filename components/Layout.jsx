@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Container from './Container'
 import Header from './Header'
 
-const Layout = ({ title, description, children }) => {
+const Layout = ({ title, description, keywords, children }) => {
   return (
     <Container>
       <Head>
@@ -14,6 +14,10 @@ const Layout = ({ title, description, children }) => {
         <meta
           name='viewport'
           content='width=device-width, initial-scale=1'
+        />
+        <meta
+          name='keywords'
+          content={keywords}
         />
       </Head>
 
