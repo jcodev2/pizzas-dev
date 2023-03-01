@@ -1,4 +1,5 @@
 import Layout from 'components/Layout'
+import Loading from 'components/Loading'
 import Navigation from 'components/Navigation'
 import PizzaCard from 'components/PizzaCard'
 import Search from 'components/Search'
@@ -14,7 +15,7 @@ const layoutProps = {
 }
 
 export default function Home() {
-  const [, memorizedPizzasOfTheDay] = useMenu()
+  const { sixPizzas, isSixPizzasError, isSixPizzasLoading } = useMenu()
   const { cart } = useContext(CartContext)
 
   return (
@@ -50,8 +51,12 @@ export default function Home() {
             <Link href='/menu'>View all</Link>
           </div>
           <div className='pizzas'>
-            {memorizedPizzasOfTheDay ? (
-              memorizedPizzasOfTheDay.map(({ id, name, image, price }) => (
+            {isSixPizzasLoading ? (
+              <Loading />
+            ) : isSixPizzasError ? (
+              <p>There was an error</p>
+            ) : (
+              sixPizzas[0].map(({ id, name, image, price }) => (
                 <PizzaCard
                   key={id}
                   name={name}
@@ -60,8 +65,6 @@ export default function Home() {
                   id={id}
                 />
               ))
-            ) : (
-              <p>Loading...</p>
             )}
           </div>
         </article>

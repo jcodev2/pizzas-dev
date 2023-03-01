@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import { createAutocomplete } from '@algolia/autocomplete-core'
 import useMenu from 'hooks/useMenu'
 import { debounce } from 'lodash'
@@ -9,7 +10,7 @@ const Search = ({ value, onChange }) => {
   const inputRef = useRef()
   const formRef = useRef()
   const panelRef = useRef()
-  const [menu] = useMenu()
+  const { menu, isLoading } = useMenu()
 
   const [autocompleteState, setAutocompleteState] = useState({
     collection: [],
@@ -27,17 +28,20 @@ const Search = ({ value, onChange }) => {
             sourceId: 'products-pizza-menu',
             getItems: ({ query }) => {
               if (!!query) {
-                return menu.filter((item) =>
-                  item.name.toLowerCase().includes(query.toLowerCase())
-                )
+                return isLoading
+                  ? []
+                  : menu[0].filter((item) =>
+                      item.name.toLowerCase().includes(query.toLowerCase())
+                    )
               }
               return []
             }
           }
         ]
       }),
-    [menu]
+    [isLoading, menu]
   )
+
   const focusInput = () => {
     inputRef.current.focus()
   }
@@ -78,7 +82,7 @@ const Search = ({ value, onChange }) => {
 
             return (
               items.length > 0 && (
-                <article key={`section-${index}`}>
+                <article key={'collection-' + index}>
                   <ul {...autocomplete.getListProps()}>
                     {items.map((item) => (
                       <AutocompleteItem

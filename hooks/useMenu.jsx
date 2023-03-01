@@ -1,49 +1,35 @@
-import { useEffect, useMemo, useState } from 'react'
+import useSWR from 'swr'
 import { readMenu, readSixPizzas } from 'utilities/crud/readMenu'
 
 const useMenu = () => {
-  const [menu, setMenu] = useState([])
-  const [pizzasOfTheDay, setPizzasOfTheDay] = useState([])
-  const [error, setError] = useState(null)
-
-  const fetchMenu = async () => {
-    const [menu, error] = await readMenu()
-
-    if (error) {
-      setError(error)
-      return
+  const { data: menu, error } = useSWR('menu', async () => {
+    try {
+      const menu = await readMenu()
+      return menu
+    } catch (error) {
+      console.log(error)
     }
-
-    setMenu(menu)
-  }
-
-  const fetchPizzasOfTheDay = async () => {
-    const [pizzasOfTheDay, error] = await readSixPizzas()
-
-    if (error) {
-      setError(error)
-      return
+  })
+  const { data: sixPizzas, error: sixPizzasError } = useSWR(
+    'sixPizzas',
+    async () => {
+      try {
+        const sixPizzas = await readSixPizzas()
+        return sixPizzas
+      } catch (error) {
+        console.log(error)
+      }
     }
-
-    setPizzasOfTheDay(pizzasOfTheDay)
-  }
-
-  useEffect(() => {
-    fetchMenu()
-  }, [])
-
-  useEffect(() => {
-    fetchPizzasOfTheDay()
-  }, [])
-
-  const memorizedMenu = useMemo(() => menu, [menu])
-
-  const memorizedPizzasOfTheDay = useMemo(
-    () => pizzasOfTheDay,
-    [pizzasOfTheDay]
   )
 
-  return [memorizedMenu, memorizedPizzasOfTheDay, error]
+  return {
+    menu,
+    sixPizzas,
+    isLoading: !error && !menu,
+    isError: error,
+    isSixPizzasLoading: !sixPizzasError && !sixPizzas,
+    isSixPizzasError: sixPizzasError
+  }
 }
 
 export default useMenu

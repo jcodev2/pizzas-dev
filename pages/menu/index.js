@@ -1,4 +1,5 @@
 import Layout from 'components/Layout'
+import Loading from 'components/Loading'
 import Navigation from 'components/Navigation'
 import PizzaCard from 'components/PizzaCard'
 import Search from 'components/Search'
@@ -11,7 +12,7 @@ const layoutProps = {
 }
 
 export default function Menu() {
-  const [memorizedMenu] = useMenu()
+  const { menu, isLoading, isError } = useMenu()
 
   return (
     <Layout {...layoutProps}>
@@ -24,15 +25,21 @@ export default function Menu() {
             <h2>Menu</h2>
           </div>
           <div className='pizzas'>
-            {memorizedMenu.map(({ id, name, image, price }) => (
-              <PizzaCard
-                key={id}
-                name={name}
-                image={image}
-                price={price}
-                id={id}
-              />
-            ))}
+            {isLoading ? (
+              <Loading />
+            ) : isError ? (
+              <p>Error</p>
+            ) : (
+              menu[0].map(({ id, name, image, price }) => (
+                <PizzaCard
+                  key={id}
+                  name={name}
+                  image={image}
+                  price={price}
+                  id={id}
+                />
+              ))
+            )}
           </div>
         </article>
       </section>

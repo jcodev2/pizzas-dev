@@ -1,26 +1,9 @@
 import { useRouter } from 'next/router'
-import { useEffect, useMemo, useState } from 'react'
 import supabase from 'services/supabase'
+import useSWR from 'swr'
 
 const useUser = () => {
-  const [user, setUser] = useState(null)
   const router = useRouter()
-
-  const getUserData = useMemo(async () => {
-    try {
-      const user = await supabase.auth.getUser()
-      if (user.data?.user) {
-        setUser(user.data.user)
-        if (router.pathname === '/') {
-          router.push('/home')
-        }
-      } else {
-        router.push('/')
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }, [])
 
   const getURL = () => {
     let url =
@@ -48,14 +31,28 @@ const useUser = () => {
     await supabase.auth.signOut()
   }
 
-  useEffect(() => {
-    getUserData
-  }, [])
+  const { data: user, error } = useSWR('user', async () => {
+    try {
+      const user = await supabase.auth.getUser()
+      if (user.data?.user) {
+        if (router.pathname === '/') {
+          router.push('/home')
+        }
+        return user.data.user
+      } else {
+        router.push('/')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  })
 
   return {
     user,
     signInWithGithub,
-    signOut
+    signOut,
+    isLoading: !error && !user,
+    isError: error
   }
 }
 

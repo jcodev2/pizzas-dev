@@ -1,4 +1,5 @@
 import Layout from 'components/Layout'
+import Loading from 'components/Loading'
 import Navigation from 'components/Navigation'
 import { CartContext } from 'context/cart'
 import useUser from 'hooks/useUser'
@@ -6,7 +7,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useContext } from 'react'
 import getDate from 'utilities/getDate'
-import loadingImage from '../../public/loading-image.jpg'
 
 const layoutProps = {
   title: 'Account - Pizzas',
@@ -76,14 +76,7 @@ export default function Account() {
             </footer>
           </>
         ) : (
-          <section className='not-logged'>
-            <h2>You are not logged in</h2>
-            <Image
-              src={loadingImage}
-              alt='Loading...'
-              priority
-            />
-          </section>
+          <Loading message='You are not logged in' />
         )}
       </aside>
     </Layout>
