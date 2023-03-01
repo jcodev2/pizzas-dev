@@ -1,14 +1,33 @@
 import Container from 'components/Container'
-import Pizza from 'components/Pizza'
+import Loading from 'components/Loading'
 import ArrowSVG from 'components/svg/ArrowSVG'
-import UserSVG from 'components/svg/UserSVG'
-import useUser from 'hooks/useUser'
-import Image from 'next/image'
+import User from 'components/User'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { useEffect } from 'react'
 import supabase from 'services/supabase'
+import useSWR from 'swr'
+
+const Pizza = dynamic(() => import('components/Pizza'), { ssr: false })
 
 export default function PizzaPage({ pizza }) {
-  const { user } = useUser()
+  const { data, error } = useSWR('pizzas', async () => {
+    const { data } = await supabase.from('pizzas').select('*')
+    return data
+  })
+
+  useEffect(() => {
+    // pre-fetch pizza data
+    supabase.from('pizzas').select('*').eq('id', pizza.id)
+  }, [pizza])
+
+  if (error) {
+    return <div>Error loading pizzas.</div>
+  }
+
+  if (!data) {
+    return <Loading />
+  }
 
   return (
     <Container>
@@ -23,45 +42,15 @@ export default function PizzaPage({ pizza }) {
           <h1 className='cl-white'>Love Pizza</h1>
         </div>
         <div className='user'>
-          {user ? (
-            <Image
-              src={user.user_metadata.avatar_url}
-              alt='user avatar'
-              width={40}
-              height={40}
-              priority
-            />
-          ) : (
-            <UserSVG />
-          )}
+          <User />
         </div>
       </header>
 
       <section className='pizza'>
-        {pizza.map(
-          ({
-            id,
-            name,
-            ingredients,
-            price,
-            rating,
-            weight,
-            kilocalories,
-            image
-          }) => (
-            <Pizza
-              key={id}
-              name={name}
-              ingredients={ingredients}
-              price={price}
-              rating={rating}
-              weight={weight}
-              kilocalories={kilocalories}
-              image={image}
-              id={id}
-            />
-          )
-        )}
+        <Pizza
+          key={pizza.id}
+          {...pizza}
+        />
       </section>
     </Container>
   )
@@ -77,13 +66,14 @@ export const getStaticPaths = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps = async ({ params }) => {
+export async function getStaticProps({ params }) {
   const { id } = params
   const { data } = await supabase.from('pizzas').select('*').eq('id', id)
 
   return {
     props: {
-      pizza: data
-    }
+      pizza: data[0]
+    },
+    revalidate: 60 * 60 * 24 // 24 hours
   }
 }
