@@ -50,15 +50,19 @@ export default function Home() {
             <Link href='/menu'>View all</Link>
           </div>
           <div className='pizzas'>
-            {memorizedPizzasOfTheDay.map(({ id, name, image, price }) => (
-              <PizzaCard
-                key={id}
-                name={name}
-                image={image}
-                price={price}
-                id={id}
-              />
-            ))}
+            {memorizedPizzasOfTheDay ? (
+              memorizedPizzasOfTheDay.map(({ id, name, image, price }) => (
+                <PizzaCard
+                  key={id}
+                  name={name}
+                  image={image}
+                  price={price}
+                  id={id}
+                />
+              ))
+            ) : (
+              <p>Loading...</p>
+            )}
           </div>
         </article>
       </section>
