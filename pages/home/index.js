@@ -7,12 +7,18 @@ import useMenu from 'hooks/useMenu'
 import Link from 'next/link'
 import { useContext } from 'react'
 
+const layoutProps = {
+  title: 'Home - Pizzas',
+  description: 'Home page for the Pizzas site',
+  keywords: 'pizzas, home'
+}
+
 export default function Home() {
   const [, memorizedPizzasOfTheDay] = useMenu()
   const { cart } = useContext(CartContext)
 
   return (
-    <Layout>
+    <Layout {...layoutProps}>
       <Search />
       <Navigation />
 

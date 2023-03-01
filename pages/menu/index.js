@@ -4,11 +4,17 @@ import PizzaCard from 'components/PizzaCard'
 import Search from 'components/Search'
 import useMenu from 'hooks/useMenu'
 
+const layoutProps = {
+  title: 'Menu - Pizzas',
+  description: 'Menu page for the Pizzas site',
+  keywords: 'pizzas, menu'
+}
+
 export default function Menu() {
   const [memorizedMenu] = useMenu()
 
   return (
-    <Layout>
+    <Layout {...layoutProps}>
       <Search />
       <Navigation />
 

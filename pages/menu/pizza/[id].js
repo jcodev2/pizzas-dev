@@ -3,6 +3,7 @@ import Pizza from 'components/Pizza'
 import ArrowSVG from 'components/svg/ArrowSVG'
 import UserSVG from 'components/svg/UserSVG'
 import useUser from 'hooks/useUser'
+import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import supabase from 'services/supabase'
@@ -11,59 +12,73 @@ export default function PizzaPage({ pizza }) {
   const { user } = useUser()
 
   return (
-    <Container>
-      <header className='header'>
-        <Link
-          href='/menu'
-          className='menu arrow'
-        >
-          <ArrowSVG />
-        </Link>
-        <div className='logo in-case'>
-          <h1 className='cl-white'>Love Pizza</h1>
-        </div>
-        <div className='user'>
-          {user ? (
-            <Image
-              src={user.user_metadata.avatar_url}
-              alt='user avatar'
-              width={40}
-              height={40}
-              priority
-            />
-          ) : (
-            <UserSVG />
-          )}
-        </div>
-      </header>
+    <>
+      <Head>
+        <title>{pizza.name} - Love Pizza</title>
+        <meta
+          name='description'
+          content={`Pizza ${pizza.name} with ${pizza.ingredients}`}
+        />
+        <meta
+          name='keywords'
+          content={`pizza, ${pizza.name}, ${pizza.ingredients}`}
+        />
+      </Head>
 
-      <section className='pizza'>
-        {pizza.map(
-          ({
-            id,
-            name,
-            ingredients,
-            price,
-            rating,
-            weight,
-            kilocalories,
-            image
-          }) => (
-            <Pizza
-              key={id}
-              name={name}
-              ingredients={ingredients}
-              price={price}
-              rating={rating}
-              weight={weight}
-              kilocalories={kilocalories}
-              image={image}
-              id={id}
-            />
-          )
-        )}
-      </section>
-    </Container>
+      <Container>
+        <header className='header'>
+          <Link
+            href='/menu'
+            className='menu arrow'
+          >
+            <ArrowSVG />
+          </Link>
+          <div className='logo in-case'>
+            <h1 className='cl-white'>Love Pizza</h1>
+          </div>
+          <div className='user'>
+            {user ? (
+              <Image
+                src={user.user_metadata.avatar_url}
+                alt='user avatar'
+                width={40}
+                height={40}
+                priority
+              />
+            ) : (
+              <UserSVG />
+            )}
+          </div>
+        </header>
+
+        <section className='pizza'>
+          {pizza.map(
+            ({
+              id,
+              name,
+              ingredients,
+              price,
+              rating,
+              weight,
+              kilocalories,
+              image
+            }) => (
+              <Pizza
+                key={id}
+                name={name}
+                ingredients={ingredients}
+                price={price}
+                rating={rating}
+                weight={weight}
+                kilocalories={kilocalories}
+                image={image}
+                id={id}
+              />
+            )
+          )}
+        </section>
+      </Container>
+    </>
   )
 }
 
