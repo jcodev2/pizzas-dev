@@ -20,7 +20,20 @@ const useUser = () => {
     } catch (error) {
       console.log(error)
     }
-  }, [router])
+  }, [])
+
+  const getURL = () => {
+    let url =
+      process?.env?.NEXT_PUBLIC_SITE_URL ??
+      process?.env?.NEXT_PUBLIC_VERCEL_URL ??
+      'http://localhost:3000/home'
+
+    url = url.includes('http') ? url : `https://${url}`
+
+    url = url.charAt(url.length - 1) === '/' ? url : `${url}/`
+
+    return url
+  }
 
   const signInWithGithub = async () => {
     await supabase.auth.signInWithOAuth({
@@ -36,7 +49,7 @@ const useUser = () => {
 
   useEffect(() => {
     getUserData
-  }, [getUserData])
+  }, [])
 
   return {
     user,
