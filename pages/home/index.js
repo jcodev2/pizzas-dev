@@ -8,7 +8,7 @@ import Link from 'next/link'
 import { useContext } from 'react'
 
 export default function Home() {
-  const [, pizzasOfTheDay] = useMenu()
+  const [, memorizedPizzasOfTheDay] = useMenu()
   const { cart } = useContext(CartContext)
 
   return (
@@ -44,7 +44,7 @@ export default function Home() {
             <Link href='/menu'>View all</Link>
           </div>
           <div className='pizzas'>
-            {pizzasOfTheDay.map(({ id, name, image, price }) => (
+            {memorizedPizzasOfTheDay.map(({ id, name, image, price }) => (
               <PizzaCard
                 key={id}
                 name={name}

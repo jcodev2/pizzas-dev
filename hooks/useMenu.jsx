@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { readMenu, readSixPizzas } from 'utilities/crud/readMenu'
 
 const useMenu = () => {
@@ -27,6 +27,7 @@ const useMenu = () => {
 
     setPizzasOfTheDay(pizzasOfTheDay)
   }
+
   useEffect(() => {
     fetchMenu()
   }, [])
@@ -35,7 +36,14 @@ const useMenu = () => {
     fetchPizzasOfTheDay()
   }, [])
 
-  return [menu, pizzasOfTheDay, error]
+  const memorizedMenu = useMemo(() => menu, [menu])
+
+  const memorizedPizzasOfTheDay = useMemo(
+    () => pizzasOfTheDay,
+    [pizzasOfTheDay]
+  )
+
+  return [memorizedMenu, memorizedPizzasOfTheDay, error]
 }
 
 export default useMenu

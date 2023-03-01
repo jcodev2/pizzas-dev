@@ -4,8 +4,8 @@ import PizzaCard from 'components/PizzaCard'
 import Search from 'components/Search'
 import useMenu from 'hooks/useMenu'
 
-export default function Home() {
-  const [menu] = useMenu()
+export default function Menu() {
+  const [memorizedMenu] = useMenu()
 
   return (
     <Layout>
@@ -18,7 +18,7 @@ export default function Home() {
             <h2>Menu</h2>
           </div>
           <div className='pizzas'>
-            {menu.map(({ id, name, image, price }) => (
+            {memorizedMenu.map(({ id, name, image, price }) => (
               <PizzaCard
                 key={id}
                 name={name}
