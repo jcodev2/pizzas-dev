@@ -606,3 +606,126 @@ main .signup a {
   border-left: 3px solid #dedede;
   padding-left: 1rem;
 }
+
+/* ? Account */
+.account {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  min-height: calc(100vh - 12rem);
+}
+.account .account-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.account .account-header img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.account .account-header .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.account .account-header .user-info h2 {
+  font-size: var(--step-3);
+  font-weight: 700;
+}
+.account .account-header .user-info p {
+  font-size: var(--step-1);
+  font-weight: 700;
+  color: #dedede;
+}
+.account .account-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.account .account-body .box-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.account .account-body .box-info div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 7rem;
+  background-color: var(--second-color);
+  padding: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+.account .account-body .box-info div h2 {
+  font-size: var(--step-2);
+  font-weight: 700;
+}
+.account .account-body .box-info div p {
+  font-size: var(--step-0);
+  font-weight: 700;
+}
+.account .account-body .box-description {
+  display: flex;
+  flex-direction: column;
+}
+.account .account-body .box-description h2 {
+  font-size: var(--step-3);
+  font-weight: 700;
+}
+.account .account-body .box-description p {
+  font-size: var(--step-1);
+  font-weight: 400;
+  text-align: justify;
+}
+.account .account-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  width: 100%;
+}
+.account .account-footer a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 4rem;
+  border: none;
+  border-radius: 8rem;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  font-size: var(--step-2);
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+}
+.account .not-logged {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.account .not-logged h2 {
+  font-size: var(--step-3);
+  font-weight: 700;
+}
+.account .not-logged img {
+  width: 30rem;
+  height: 30rem;
+  object-fit: cover;
+  border-radius: 2rem;
+}
