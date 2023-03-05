@@ -18,7 +18,7 @@ export default function Document() {
           rel='stylesheet'
         />
         <meta
-          rel='theme-color'
+          name='theme-color'
           content='#ef9a53'
         />
       </Head>
