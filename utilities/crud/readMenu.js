@@ -17,6 +17,7 @@ const readSixPizzas = async () => {
       .from('pizzas')
       .select('*')
       .limit(6)
+      .order('id', { ascending: true })
 
     return [menu, error]
   } catch (error) {

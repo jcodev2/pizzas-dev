@@ -1,9 +1,16 @@
+import { motion } from 'framer-motion'
 import MenuSVG from './svg/MenuSVG'
 import User from './User'
 
 const Header = () => {
   return (
-    <header className='header'>
+    <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className='header'
+    >
       <div className='menu'>
         <MenuSVG />
       </div>
@@ -13,7 +20,7 @@ const Header = () => {
       <div className='user'>
         <User />
       </div>
-    </header>
+    </motion.header>
   )
 }
 

@@ -1,10 +1,13 @@
 import { CartProvider } from 'context/cart'
+import { AnimatePresence } from 'framer-motion'
 import '../styles/main.css'
 
 export default function App({ Component, pageProps }) {
   return (
-    <CartProvider>
-      <Component {...pageProps} />
-    </CartProvider>
+    <AnimatePresence mode='wait'>
+      <CartProvider>
+        <Component {...pageProps} />
+      </CartProvider>
+    </AnimatePresence>
   )
 }

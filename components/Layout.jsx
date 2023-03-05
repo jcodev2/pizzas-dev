@@ -1,6 +1,11 @@
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Container from './Container'
 import Header from './Header'
+
+const CircleIndicator = dynamic(() => import('components/ProgressBar'), {
+  ssr: false
+})
 
 const Layout = ({ title, description, keywords, children }) => {
   return (
@@ -20,6 +25,8 @@ const Layout = ({ title, description, keywords, children }) => {
           content={keywords}
         />
       </Head>
+
+      <CircleIndicator />
 
       <Header />
 

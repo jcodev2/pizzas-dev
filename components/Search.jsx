@@ -1,5 +1,6 @@
 /* eslint-disable indent */
 import { createAutocomplete } from '@algolia/autocomplete-core'
+import { motion } from 'framer-motion'
 import useMenu from 'hooks/useMenu'
 import { debounce } from 'lodash'
 import { useMemo, useRef, useState } from 'react'
@@ -58,7 +59,10 @@ const Search = ({ value, onChange }) => {
   }, 500)
 
   return (
-    <form
+    <motion.form
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
       className='search'
       {...formProps}
       ref={formRef}
@@ -72,7 +76,10 @@ const Search = ({ value, onChange }) => {
         {...inputProps}
       />
       {autocompleteState.isOpen && (
-        <section
+        <motion.section
+          initial={{ opacity: 0, y: -10, pointerEvents: 'none' }}
+          animate={{ opacity: 1, y: 0, pointerEvents: 'all' }}
+          transition={{ duration: 0.5 }}
           className='autocomplete-panel'
           ref={panelRef}
           {...autocomplete.getPanelProps()}
@@ -95,19 +102,22 @@ const Search = ({ value, onChange }) => {
               )
             )
           })}
-        </section>
+        </motion.section>
       )}
       {autocompleteState.isOpen === false &&
         autocompleteState.query.length > 0 && (
-          <section
+          <motion.section
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             className='autocomplete-panel'
             ref={panelRef}
           >
             <p className='no-results'>No results found</p>
-          </section>
+          </motion.section>
           // eslint-disable-next-line indent
         )}
-    </form>
+    </motion.form>
   )
 }
 

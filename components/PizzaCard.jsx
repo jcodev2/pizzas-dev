@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import capitalizeFirstLetter from 'utilities/capitalizeFirstLetter'
@@ -7,7 +8,13 @@ const PizzaCard = ({ id, name, image, price }) => {
   const capitalizedName = capitalizeFirstLetter(name)
 
   return (
-    <section className='pizza-card'>
+    <motion.section
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.05 }}
+      className='pizza-card'
+    >
       <Link
         href={`/menu/pizza/${id}`}
         passHref
@@ -31,7 +38,7 @@ const PizzaCard = ({ id, name, image, price }) => {
           </div>
         </article>
       </Link>
-    </section>
+    </motion.section>
   )
 }
 
