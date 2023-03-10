@@ -21,6 +21,11 @@ export default function Document() {
           name='theme-color'
           content='#ef9a53'
         />
+        {/* favicon */}
+        <link
+          rel='icon'
+          href='/public/logo.png'
+        />
       </Head>
       <body>
         <Main />

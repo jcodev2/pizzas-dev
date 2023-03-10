@@ -1,10 +1,7 @@
-import { Inter } from '@next/font/google'
 import Layout from 'components/Layout'
 import LoginSVG from 'components/svg/LoginSVG'
 import useUser from 'hooks/useUser'
 import Link from 'next/link'
-
-const inter = Inter({ subsets: ['latin'] })
 
 const layoutProps = {
   title: 'Login - Pizzas',
