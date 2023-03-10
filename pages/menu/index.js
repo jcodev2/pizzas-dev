@@ -8,7 +8,9 @@ import useMenu from 'hooks/useMenu'
 const layoutProps = {
   title: 'Menu - Pizzas',
   description: 'Menu page for the Pizzas site',
-  keywords: 'pizzas, menu'
+  keywords: 'pizzas, menu',
+  image: '/public/img/logo.png',
+  url: 'https://pizzas.vercel.app'
 }
 
 export default function Menu() {

@@ -11,7 +11,9 @@ import { useContext } from 'react'
 const layoutProps = {
   title: 'Home - Pizzas',
   description: 'Home page for the Pizzas site',
-  keywords: 'pizzas, home'
+  keywords: 'pizzas, home',
+  image: '/public/img/logo.png',
+  url: 'https://pizzas.vercel.app'
 }
 
 export default function Home() {

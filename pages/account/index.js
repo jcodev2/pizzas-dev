@@ -11,7 +11,9 @@ import getDate from 'utilities/getDate'
 const layoutProps = {
   title: 'Account - Pizzas',
   description: 'Account page for the Pizzas site',
-  keywords: 'pizzas, account'
+  keywords: 'pizzas, account',
+  image: '/public/img/logo.png',
+  url: 'https://pizzas.vercel.app'
 }
 
 export default function Account() {

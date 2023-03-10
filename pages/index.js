@@ -1,16 +1,17 @@
-/* eslint-disable react/no-unescaped-entities */
-// import { Inter } from '@next/font/google'
+import { Inter } from '@next/font/google'
 import Layout from 'components/Layout'
 import LoginSVG from 'components/svg/LoginSVG'
 import useUser from 'hooks/useUser'
 import Link from 'next/link'
 
-// const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] })
 
 const layoutProps = {
   title: 'Login - Pizzas',
   description: 'Login page for the Pizzas site',
-  keywords: 'pizzas, login'
+  keywords: 'pizzas, login',
+  image: '/public/img/logo.png',
+  url: 'https://pizzas.vercel.app'
 }
 
 export default function Home() {

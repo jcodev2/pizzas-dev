@@ -9,7 +9,9 @@ import { useContext } from 'react'
 const layoutProps = {
   title: 'Cart - Pizzas',
   description: 'Cart page for the Pizzas site',
-  keywords: 'pizzas, cart'
+  keywords: 'pizzas, cart',
+  image: '/public/img/logo.png',
+  url: 'https://pizzas.vercel.app'
 }
 
 export default function Cart() {
