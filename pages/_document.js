@@ -24,7 +24,7 @@ export default function Document() {
         {/* favicon */}
         <link
           rel='icon'
-          href='/public/logo.png'
+          href='pizza.png'
         />
       </Head>
       <body>
