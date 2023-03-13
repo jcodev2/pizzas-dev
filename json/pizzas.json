@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "margarita pizza",
+    "price": "10",
+    "ingredients": "Italian pizza dough, tomato sauce, mozzarella cheese, basil leaves, olive oil",
+    "rating": "4.5",
+    "weight": "3",
+    "kilocalories": "276",
+    "image": "https://openai-labs-public-images-prod.azureedge.net/user-HVRhIsK3zaxInixGubWu4zEW/generations/generation-FdFX3KIRiXDtbGwXmac7rcHa/image.webp"
+  },
+  {
+    "id": 2,
+    "name": "pepperoni pizza",
+    "price": "9",
+    "ingredients": "Flour, milk, yeast, salt, green pepper, onion, pepperoni, oregano, and pepper",
+    "rating": "3",
+    "weight": "2.5",
+    "kilocalories": "350",
+    "image": "https://openai-labs-public-images-prod.azureedge.net/user-HVRhIsK3zaxInixGubWu4zEW/generations/generation-RvYNPT5JMK0KeSd4hAOKiXyw/image.webp"
+  },
+  {
+    "id": 3,
+    "name": "four cheese pizza",
+    "price": "11",
+    "ingredients": "Pizza dough, tomato sauce, grated mozzarella cheese, grated Parmesan cheese, grated Gorgonzola cheese, grated fontina cheese",
+    "rating": "4",
+    "weight": "3.7",
+    "kilocalories": "249",
+    "image": "https://openai-labs-public-images-prod.azureedge.net/user-HVRhIsK3zaxInixGubWu4zEW/generations/generation-Vf7P1NvVoaIWImgkQEs8R5kP/image.webp"
+  },
+  {
+    "id": 4,
+    "name": "four seasons pizza",
+    "price": "8",
+    "ingredients": "Pizza dough, tomato sauce, grated mozzarella cheese, thinly sliced prosciutto, thinly sliced ham, thinly sliced salami, sliced mushrooms, sliced olives",
+    "rating": "5",
+    "weight": "4",
+    "kilocalories": "250",
+    "image": "https://openai-labs-public-images-prod.azureedge.net/user-HVRhIsK3zaxInixGubWu4zEW/generations/generation-rd8oh3tlcysJcxsMA9KKzHIK/image.webp"
+  },
+  {
+    "id": 5,
+    "name": "pizza with mushrooms",
+    "price": "12",
+    "ingredients": "Pizza dough, tomato sauce, grated mozzarella cheese sliced mushrooms, chopped garlic, chopped fresh parsley",
+    "rating": "4",
+    "weight": "3.5",
+    "kilocalories": "156",
+    "image": "https://openai-labs-public-images-prod.azureedge.net/user-HVRhIsK3zaxInixGubWu4zEW/generations/generation-qO0RS3QGZeBBJ6NdIM3DNgkM/image.webp"
+  },
+  {
+    "id": 6,
+    "name": "hawaiian pizza",
+    "price": "10",
+    "ingredients": "Pizza dough, tomato sauce, grated mozzarella cheese, sliced pineapple, sliced ham",
+    "rating": "3",
+    "weight": "2.5",
+    "kilocalories": "200",
+    "image": "https://openai-labs-public-images-prod.azureedge.net/user-HVRhIsK3zaxInixGubWu4zEW/generations/generation-uABCLncHU592oKrkxxDwlsim/image.webp"
+  },
+  {
+    "id": 7,
+    "name": "marinara pizza",
+    "price": "15",
+    "ingredients": "Pizza dough, chopped tomatoes, chopped garlic, chopped fresh basil or other herbs, olive oil",
+    "rating": "5",
+    "weight": "3",
+    "kilocalories": "365",
+    "image": "https://openai-labs-public-images-prod.azureedge.net/user-HVRhIsK3zaxInixGubWu4zEW/generations/generation-F05nfqw1Hqf0VpWvQm0I1Awv/image.webp"
+  },
+  {
+    "id": 8,
+    "name": "neapolitan pizza",
+    "price": "20",
+    "ingredients": "Pizza dough, tomato sauce, grated mozzarella cheese, fresh basil leaves, olive oil",
+    "rating": "5",
+    "weight": "4",
+    "kilocalories": "300",
+    "image": "https://openai-labs-public-images-prod.azureedge.net/user-HVRhIsK3zaxInixGubWu4zEW/generations/generation-jZ59BAHTLyw2ZHG6KFMLF5Ra/image.webp"
+  },
+  {
+    "id": 9,
+    "name": "new york-style pizza",
+    "price": "7",
+    "ingredients": "Pizza dough, tomato sauce, grated mozzarella cheese, olive oil, sliced pepperoni, sliced mushrooms",
+    "rating": "3",
+    "weight": "4.7",
+    "kilocalories": "545",
+    "image": "https://openai-labs-public-images-prod.azureedge.net/user-HVRhIsK3zaxInixGubWu4zEW/generations/generation-wzyvCklUOPc20b8RX8o9wUGq/image.webp"
+  },
+  {
+    "id": 10,
+    "name": "fugazza pizza",
+    "price": "8",
+    "ingredients": "Pizza dough, grated mozzarella cheese, sliced onions, olive oil",
+    "rating": "3",
+    "weight": "3.2",
+    "kilocalories": "142",
+    "image": "https://openai-labs-public-images-prod.azureedge.net/user-HVRhIsK3zaxInixGubWu4zEW/generations/generation-jrOFdjBN5uYSWQv2hOdNDdsm/image.webp"
+  }
+]
