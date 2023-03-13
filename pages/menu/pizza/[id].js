@@ -19,10 +19,10 @@ export default function PizzaPage({ pizza }) {
   useEffect(() => {
     // pre-fetch pizza data
     supabase.from('pizzas').select('*').eq('id', pizza.id)
-  }, [pizza])
+  }, [pizza.id])
 
   if (error) {
-    return <div>Error loading pizzas.</div>
+    return <div role='alert'>Error loading pizzas. Please try again later.</div>
   }
 
   if (!data) {
