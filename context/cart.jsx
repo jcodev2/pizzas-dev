@@ -7,15 +7,14 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
 
   const addToCart = debounce((pizza) => {
-    const newCart = cart.map((item) => {
-      if (item.id === pizza.id) {
-        return { ...item, quantity: item.quantity + 1 }
-      }
-      return item
-    })
-    const isPizzaInCart = newCart.find((item) => item.id === pizza.id)
-
+    const isPizzaInCart = cart.find((item) => item.id === pizza.id)
     if (isPizzaInCart) {
+      const newCart = cart.map((item) => {
+        if (item.id === pizza.id) {
+          return { ...item, quantity: item.quantity + 1 }
+        }
+        return item
+      })
       setCart(newCart)
     } else {
       setCart([...cart, { ...pizza, quantity: 1 }])
