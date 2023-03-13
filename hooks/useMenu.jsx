@@ -28,8 +28,7 @@ const useMenu = () => {
     isLoading: !error && !menu,
     isError: error,
     isSixPizzasLoading: !sixPizzasError && !sixPizzas,
-    isSixPizzasError: sixPizzasError,
-    insertMenu
+    isSixPizzasError: sixPizzasError
   }
 }
 
