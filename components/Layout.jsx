@@ -1,14 +1,8 @@
 import { MenuContext } from 'context/menu'
-import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import { useContext } from 'react'
 import Container from './Container'
-import GoTop from './GoTop'
 import Header from './Header'
-
-const CircleIndicator = dynamic(() => import('components/ProgressBar'), {
-  ssr: false
-})
 
 const Layout = ({ title, description, keywords, image, url, children }) => {
   const { setIsOpen } = useContext(MenuContext)
@@ -49,13 +43,9 @@ const Layout = ({ title, description, keywords, image, url, children }) => {
         />
       </Head>
 
-      <CircleIndicator />
-
       <Header />
 
       <main onClick={() => setIsOpen(false)}>{children}</main>
-
-      <GoTop />
     </Container>
   )
 }
